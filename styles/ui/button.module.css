@@ -1,0 +1,22 @@
+.primary{
+    background: #333333 !important; 
+    padding: 10px 40px !important;
+    color: #F7F7F7 !important;
+    font-size: 18px !important; 
+    font-weight: 500 !important;
+}
+.primary:hover{
+    background: #424242 !important; 
+}
+.secondary{
+    background: transparent !important; 
+    padding: 10px 40px !important;
+    color: #313131 !important;
+    font-size: 18px !important; 
+    font-weight: 500 !important;
+    border: 1px solid #313131 !important;
+    border-radius: 1px !important;
+}
+.secondary:hover{
+    background: transparent !important; 
+}

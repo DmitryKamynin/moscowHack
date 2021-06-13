@@ -1,0 +1,74 @@
+.bg{
+    position: relative;
+    max-width: 280px;
+    width: 100%;
+    height: 300px;
+    display: block;
+    flex: 1 0 100%;
+    margin-right: 20px;
+}
+.bg:after{
+    content: 'Узнать больше';
+    
+    display: flex;
+    color: transparent;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    background-color: #0000008a;
+    transition: .3s;
+}
+.bg:hover:after{
+    z-index: 999;
+    background-color: #000000f5;
+    color: #fff;
+}
+.container{
+    max-width: 280px;
+    width: 100%;
+    height: 300px;
+    padding: 20px 20px 12px 20px;
+    background-color: #333333;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    /* display: block; */
+}
+    .title{
+        color: #f3f3f3;
+        font-weight: 600;
+        font-size: 18px;
+        position: relative;
+        z-index: 100;
+    }
+    .address{
+        color: #f3f3f3;
+        margin-top: 16px;
+        font-size: 12px;
+        position: relative;
+        z-index: 100;
+    }
+    .wrapper{
+        margin-top: auto;
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        z-index: 100;
+    }
+    .day{
+        color: #f3f3f3;
+        font-size: 18px;
+    }
+    .tags{
+
+    }
+@media screen and (max-width: 1000px) {
+    .bg, .container{
+        max-width: 300px;
+    }
+}

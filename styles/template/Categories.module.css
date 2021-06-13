@@ -1,0 +1,20 @@
+.wrapper{
+    overflow-x: auto;
+    background: #E5E5E5;
+}
+.container{
+    display: flex;
+    width: 100%;
+    padding: 8px 5px;
+}
+    .link{
+        color: #333333;
+        font-weight: 500;
+        font-size: 18px;
+        flex-grow: 1;
+        flex-shrink: 0;
+        margin-right: 20px;
+    }
+    .link > p{
+        width: 100%;
+    }

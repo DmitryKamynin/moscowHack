@@ -1,0 +1,42 @@
+.wrapper{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-top: 40px;
+}
+.eventCards{
+    display: flex;
+    overflow-x: auto;
+}
+.link{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top:10px;
+    color: #333333;
+    font-weight: 400;
+    font-size: 18px;
+}
+.link > div{
+    margin-left: 10px !important;
+}
+@media screen and (max-width: 1000px) {
+    .wrapper{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .wrapper h2{
+        color: #333333;
+        font-weight: 600;
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    .wrapper a{
+        display: block;
+        margin-top:10px;
+        color: #333333;
+        font-weight: 400;
+        font-size: 18px;
+    }
+}
