@@ -30,8 +30,8 @@ class Event(models.Model):
     date_time_finish = models.DateTimeField(verbose_name="Дата и время окончания")
     description = models.TextField(blank=True, null=True)
     price = models.IntegerField(blank=True, null=True)
-    image = models.ImageField(upload_to='photos/%Y/%m/%d/', max_length=255)
-
+    image = models.ImageField(upload_to='photos/%Y/%m/%d/', max_length=255, blank=True, null=True)
+    tags = models.ManyToManyField("Tags", verbose_name="Тэги", blank=True, null=True)
     def __str__(self):
         return self.title
 
@@ -45,3 +45,9 @@ class Category(models.Model):
     class Meta:
         verbose_name = "Категория"
         verbose_name_plural = "Категории"
+
+
+class Tags(models.Model):
+    title = models.CharField(max_length=255, verbose_name="Тэг")
+    def __str__(self):
+        return self.title

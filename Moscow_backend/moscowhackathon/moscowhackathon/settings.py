@@ -32,10 +32,10 @@ CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_ALLOW_ALL = True
 SESSION_COOKIE_SAMESITE = None
 
-CORS_ALLOWED_ORIGINS = ["*"]
+CORS_ALLOWED_ORIGINS = ["http://185.185.69.68:3000", 'http://185.185.69.68']
 #CORS_ALLOWED_ORIGIN_REGEXES = True
 
-CORS_ORIGIN_WHITELIST = ['*']
+CORS_ORIGIN_WHITELIST = ['http://185.185.69.68:3000', 'http://185.185.69.68']
 SESSION_COOKIE_SAMESITE_FORCE_ALL = True
 SESSION_COOKIE_SAMESITE_FORCE_CORE = False
 AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.ModelBackend']
@@ -68,7 +68,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'locations_event.apps.LocationsEventConfig'
+    'locations_event.apps.LocationsEventConfig',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -79,6 +80,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'moscowhackathon.urls'
