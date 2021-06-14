@@ -5,6 +5,8 @@
     max-width: 1247px;
     margin: auto;
     padding: 0px 5px;
+    background-size: cover;
+    background-position: center;
 }
     .image{
         position: relative;
@@ -68,8 +70,13 @@
             .description{
                 display: none;
             }
+            .map{
+                width: 100%;
+                /* max-width: 1247px; */
+                height: calc(100vh - 200px);
+            }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1270px) {
     .container{
         margin-top: 40px;
         display: flex;
@@ -109,5 +116,13 @@
     .image > img{
         width: 100%;
 
+    }
+    .price{
+        display: flex;
+        flex-direction: column;
+    }
+    .map{
+        max-width: 300px;
+        height: 400px;
     }
 }

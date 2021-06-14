@@ -1,10 +1,11 @@
-import { useEffect, useState, useContext } from 'react';
+import { useEffect, useState, useContext, useMemo } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image'
 
 import { Button, Dialog } from '@material-ui/core';
 import uiStyles from 'styles/ui/button.module.css';
+import { Map, Placemark } from 'react-yandex-maps';
 
 import { Context } from 'state/context/globalContext';
 
@@ -16,15 +17,25 @@ export default function Events() {
 
   const [event, setEvent] = useState(null);
   const [map, setMap] = useState(false);
+  const [center, setCenter] = useState([55.75423169127635,37.62577464020195])
  
   useEffect(( ) => {
     if(router.query) setEvent(state.events.find( event => event.id == router.query.event ));
   }, [router])
 
-  if(event){
-    const { image, title , description, date_time_start, date_time_finish, org_id } = event;
+  const spot = state.spots.find( spot => spot.id === event?.org_id );
 
-    const { address } = state.spots.find( spot => spot.id === org_id );
+  const mapState = useMemo(() => ({
+    center,
+    zoom: 13,
+    controls: ['zoomControl', 'fullscreenControl'],
+    behaviors:['default']
+  }), []);
+
+  if(event){
+    const { image, title , description, date_time_start, date_time_finish, price } = event;
+
+    const { address, lat, lon } = spot;
 
     return (
       <>
@@ -37,7 +48,7 @@ export default function Events() {
           </Link>
 
           <div className={styles.image}>
-            <img src={`${image}`}/>
+            <img style={{width: '100%'}} src={`${image}`}/>
           </div>
   
           <div className={styles.content}>
@@ -78,7 +89,7 @@ export default function Events() {
   
             <div className={ styles.block }>
               <div className={ styles.price }>
-                <p>Стоимость входа: 500₽ </p>
+                <p>Стоимость входа: { price }₽ </p>
                 <p>Мест свободно: 52</p>
               </div>
             </div>
@@ -95,10 +106,39 @@ export default function Events() {
         </div>
 
         <Dialog
+        fullWidth
+          maxWidth={false}
           open={map}
           onClose={( ) => setMap(false)}
         >
-            Скоро тут будет карта
+          <div className={styles.map}>
+            <Map
+               style={{height: '100%', width: '100%'}}
+              state={mapState}
+              modules={['control.ZoomControl', 'control.FullscreenControl']}
+            >
+              <Placemark
+                geometry={ [lat, lon] }
+
+                properties={{
+                  iconCaption: `${title}`,
+                  balloonContentBody:`${title}</br>
+                                      ${date_time_start.match(/\d\d:\d\d/)[0]} — ${date_time_finish.match(/\d\d:\d\d/)[0]}</br>`,
+                }}
+
+                options={{
+                  iconLayout: 'default#image',
+                  iconImageHref: '/placemark.svg',
+                  iconImageSize: [40, 40],
+                  iconContentLayout: `${title}`,
+                }}
+
+                modules={
+                  ['geoObject.addon.balloon']
+                }
+              />
+            </Map>
+          </div>
         </Dialog>
       </>
   )

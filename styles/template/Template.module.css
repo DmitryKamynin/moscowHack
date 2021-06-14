@@ -1,0 +1,19 @@
+.template{
+    max-width: 1240px;
+    margin:auto;
+}
+@media screen and (max-width:1270px) {
+    .template{
+        max-width: 920px;
+    }
+}
+@media screen and (max-width:980px) {
+    .template{
+        max-width: 600px;
+    }
+}
+@media screen and (max-width:610px) {
+    .template{
+        max-width: 100%;
+    }
+}

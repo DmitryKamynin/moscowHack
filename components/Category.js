@@ -14,7 +14,7 @@ export default function Category({ children, data }) {
 
             <Link href='/'>
                 <div className={styles.link}>
-                    Смотреть события по теме <Image src="/arrowRight.svg" width={20} height={20} />
+                    <Link href={`/events/${data.id}`}><a>Смотреть события по теме <Image src="/arrowRight.svg" width={20} height={20} /></a></Link>
                 </div> 
             </Link>
             

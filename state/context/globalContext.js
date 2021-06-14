@@ -4,6 +4,7 @@ import globalReducer from 'state/reducers/globalReducer';
 import { URL } from 'config';
 import Categories from 'template/Categories';
 import NavBar from 'template/NavBar';
+import Template from 'template/Template';
 
 export const Context = createContext();
 
@@ -33,8 +34,7 @@ export function GlobalContext({children}) {
     return (
         <Context.Provider value={{ state, dispatch }}>
             <NavBar/>
-            {state.loading ? null : <Categories/>}
-            {state.loading ? <div>Loading...</div> : <>{children}</>}
+            <Template>{state.loading ? <div>Loading...</div> : <><Categories/>{children}</>}</Template>
         </Context.Provider>
     )
 }
