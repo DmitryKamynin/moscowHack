@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import { FormControlLabel, Checkbox, Drawer } from '@material-ui/core';
 import Link from 'next/link';
-import Image from 'next/image';
 import styles from 'styles/components/Filter.module.css';
 
 const Contant = () => (
@@ -38,7 +37,7 @@ const Contant = () => (
             label="В прошлом"
         />
     
-        <Link href={`/nerby`}><a style={{marginTop: '20px', display:'flex', alignItems:'center'}}>События рядом со мной <Image src="/arrowRight.svg" width={20} height={20} /></a></Link>
+        <Link href={`/nerby`}><a style={{marginTop: '20px', display:'flex', alignItems:'center'}}>События рядом со мной <img src="/arrowRight.svg" width='20' height='20' /></a></Link>
     
         <p className={styles.reset}>Сбросить всё Х</p>
     </>
@@ -48,7 +47,7 @@ export default function Filter({nerby}) {
     const [menu, setMenu] = useState(false);
     return (
         <>
-            <div style={nerby? {display:'flex'}: {}} className={styles.mobileBtn} onClick={() => setMenu(true)}>Показать фильтры  <Image src="/filter.png" width={20} height={20} /></div>
+            <div style={nerby? {display:'flex'}: {}} className={styles.mobileBtn} onClick={() => setMenu(true)}>Показать фильтры  <img src="/filter.png" width='20' height='20' /></div>
 
             <div style={nerby? {display:'none'}: {}} className={styles.desctopWrapper}>
                 <Contant/>

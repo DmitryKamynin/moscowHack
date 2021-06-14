@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 import Link from 'next/link';
-import Image from 'next/image';
 import styles from 'styles/components/EventCard.module.css';
 import { Context } from 'state/context/globalContext';
 import { URL } from 'config';
@@ -18,7 +17,6 @@ export default function EventCard({ data, nerby }) {
         <Link href={`/event/${id}`}>
             <a className={styles.bg}>
                 <div className={styles.container} style={{backgroundImage: `url(${nerby ? `${URL}${image}` : image })`}}>
-                    {/* <Image src={`${image}`} layout='fill'/> */}
 
                     <p className={styles.title}>{ title }</p>
                     <p className={styles.address}>{ address }</p>

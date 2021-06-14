@@ -26,14 +26,12 @@ export default function Events() {
         behaviors:['default']
     }), []);
 
-    // const { events, spots } = state;
-  //  http://185.185.69.68:7777/upcoming-events/?lon=37.617575&lat=55.755194
     useEffect(() => {
       if(navigator.geolocation){
         const getPos = (position) => {
-          setCurrPosition([position.coords.latitude, position.coords.longitude])
+         setCurrPosition([position.coords.latitude, position.coords.longitude])
         }
-        navigator.geolocation.getCurrentPosition(getPos);
+       navigator.geolocation.getCurrentPosition(getPos);
       }
     }, [])
 
