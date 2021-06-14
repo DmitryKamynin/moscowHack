@@ -48,7 +48,7 @@ export default function Filter({nerby}) {
     const [menu, setMenu] = useState(false);
     return (
         <>
-            <div style={nerby? {display:'block'}: {}} className={styles.mobileBtn} onClick={() => setMenu(true)}>Показать фильтры  <Image src="/filter.png" width={20} height={20} /></div>
+            <div style={nerby? {display:'flex'}: {}} className={styles.mobileBtn} onClick={() => setMenu(true)}>Показать фильтры  <Image src="/filter.png" width={20} height={20} /></div>
 
             <div style={nerby? {display:'none'}: {}} className={styles.desctopWrapper}>
                 <Contant/>

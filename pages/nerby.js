@@ -108,7 +108,7 @@ export default function Events() {
                       if(!filNer) return true;
                       else return event.cat_id == filNer;
                     })
-                    .map( event => <div style={{marginBottom: '10px'}}><EventCard key={event.id} data={event}/></div> ) : null
+                    .map( event => <div style={{marginBottom: '10px'}}><EventCard nerby key={event.id} data={event}/></div> ) : null
                   }
                 </div>
             </div>
@@ -123,7 +123,7 @@ export default function Events() {
                       if(!filNer) return true;
                       else return event.cat_id == filNer;
                     })
-                    .map( event => <div style={{marginBottom: '10px'}}><EventCard key={event.id} data={event}/></div> ) : null
+                    .map( event => <div style={{marginBottom: '10px'}}><EventCard nerby key={event.id} data={event}/></div> ) : null
                   }
                 </div>
             </div>

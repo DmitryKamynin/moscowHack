@@ -7,7 +7,6 @@
 .mobileBtn{
     display: none;
     cursor: pointer;   
-    display: flex;
     align-items: center;
     margin-top: 20px;   
 

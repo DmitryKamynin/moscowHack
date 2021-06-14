@@ -3,8 +3,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 import styles from 'styles/components/EventCard.module.css';
 import { Context } from 'state/context/globalContext';
+import { URL } from 'config';
 
-export default function EventCard({ data }) {
+export default function EventCard({ data, nerby }) {
     const { state } = useContext(Context);
 
     const { id, org_id, title, date_time_start, image } = data;
@@ -16,7 +17,7 @@ export default function EventCard({ data }) {
     return (
         <Link href={`/event/${id}`}>
             <a className={styles.bg}>
-                <div className={styles.container} style={{backgroundImage: `url(${image})`}}>
+                <div className={styles.container} style={{backgroundImage: `url(${nerby ? `${URL}${image}` : image })`}}>
                     {/* <Image src={`${image}`} layout='fill'/> */}
 
                     <p className={styles.title}>{ title }</p>
