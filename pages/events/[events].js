@@ -4,7 +4,7 @@ import { Context } from 'state/context/globalContext';
 
 
 import EventCard from 'components/EventCard';
-
+import Filter from 'components/Filter';
 import styles from 'styles/Events.module.css'
 
 
@@ -22,19 +22,26 @@ export default function Events() {
 
   return (
       <div className={styles.container}>
-        <h2>Все события города в одном месте для вас</h2>
+        <div className={styles.titleWrapper}>
+          <h2 className={styles.title}>Все события города в одном месте для вас</h2>
+          
+        </div>
 
-        <div className={styles.eventsWrapper}>
-          {id ? 
-          <>
-            {events
-              .filter(event => event.cat_id === +id)
-              .map(event => { console.log(event)
-                return ( <div className={styles.event}><EventCard key={event.id} data={event}/></div> )
-              })
-            } 
-          </>   
-          : null}
+        <div className={styles.contant}>
+          <Filter/>
+  
+          <div className={styles.eventsWrapper}>
+            {id ? 
+            <>
+              {events
+                .filter(event => event.cat_id === +id)
+                .map(event => { console.log(event)
+                  return ( <div className={styles.event}><EventCard key={event.id} data={event}/></div> )
+                })
+              } 
+            </>   
+            : null}
+          </div>
         </div>
       </div>
   )

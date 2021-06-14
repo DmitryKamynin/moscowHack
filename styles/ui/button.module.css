@@ -10,6 +10,8 @@
     background: #424242 !important; 
 }
 .secondary{
+    margin-bottom: 10px !important;
+
     background: transparent !important; 
     padding: 10px 40px !important;
     color: #313131 !important;

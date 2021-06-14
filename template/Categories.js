@@ -11,7 +11,7 @@ export default function Categories() {
     const router = useRouter();
 
     return (
-        <div className={styles.wrapper}>
+        <div className={styles.wrapper} style={router.asPath == '/nerby' ? {display:'none'} : {} }>
             
             <div className={styles.container}>
                 <Link href={`/nerby`}>

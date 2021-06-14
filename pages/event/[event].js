@@ -40,19 +40,29 @@ export default function Events() {
     return (
       <>
         <div className={styles.container}>
-          <Link href="/">
-              <p className={styles.backBtn}>
-                  <Image src={`/icon.svg`} width={20} height={20}/>
-                  назад к событиям
-              </p>
-          </Link>
+
+            <div className={styles.backAndTagsMobile}>
+              <Link href="/">
+                  <p className={styles.backBtn}>
+                      <Image src={`/icon.svg`} width={20} height={20}/>
+                      назад к событиям
+                  </p>
+              </Link>
+            </div>
 
           <div className={styles.image}>
             <img style={{width: '100%'}} src={`${image}`}/>
           </div>
   
           <div className={styles.content}>
-   
+            <div className={styles.backAndTags}>
+              <Link href="/">
+                  <p className={styles.backBtn}>
+                      <Image src={`/icon.svg`} width={20} height={20}/>
+                      назад к событиям
+                  </p>
+              </Link>
+            </div>
   
             <h2 className={styles.title}>{ title }</h2>
 
@@ -62,8 +72,10 @@ export default function Events() {
   
             <div className={ styles.block }>
               <div className={ styles.subBlock }>
-                <h2>Место проведения</h2>
-                <p>{ address }</p>
+                <div>
+                  <h2>Место проведения</h2>
+                  <p>{ address }</p>
+                </div>
                 <p onClick={() => setMap(true)}> 
                   <Image src={`/mapIcon.svg`}  width={20} height={20}/>
                   показать на карте
