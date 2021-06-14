@@ -5,15 +5,16 @@ import { Map, Placemark } from 'react-yandex-maps';
 import EventCard from 'components/EventCard';
 import FilterNerby from 'components/FilterNerby';
 import Filter from 'components/Filter';
+import { Context } from 'state/context/globalContext';
 
 import styles from 'styles/Nerby.module.css'
 
 export default function Events() {
-
+    const { state } = useContext(Context)
     const [center, setCenter] = useState([55.75423169127635,37.62577464020195])
 
     const [events, setEvents] = useState(null)
-    const [currPosition, setCurrPosition] = useState(null);
+    const [currPosition, setCurrPosition] = useState([55.75683966602532,37.64284438698088]);
     const [open, setOpen] = useState(false);
 
     const [filNer, setFilNer] = useState(null);
@@ -26,14 +27,14 @@ export default function Events() {
         behaviors:['default']
     }), []);
 
-    useEffect(() => {
-      if(navigator.geolocation){
-        const getPos = (position) => {
-         setCurrPosition([position.coords.latitude, position.coords.longitude])
-        }
-       navigator.geolocation.getCurrentPosition(getPos);
-      }
-    }, [])
+    // useEffect(() => {
+    //   if(navigator.geolocation){
+    //     const getPos = (position) => {
+    //      setCurrPosition([position.coords.latitude, position.coords.longitude])
+    //     }
+    //    navigator.geolocation.getCurrentPosition(getPos);
+    //   }
+    // }, [])
 
     useEffect(() => {
       if(currPosition){
@@ -49,6 +50,7 @@ export default function Events() {
       }
     }, [currPosition])
 
+    // const { events, spots } = state
 
     return (
       <div className={styles.containter}>
@@ -66,6 +68,52 @@ export default function Events() {
                         }}
 
                     /> : null}
+
+                {/* {events ? events
+                  .map( event => {
+                    const spot = spots.find( spot => spot.id == event.org_id);
+                    if(spot){
+                      event.lat = spot.lat;
+                      event.lon = spot.lon
+                      return event;
+                    }
+                    else return event;
+                  })
+                  .filter( event => {
+                    return spots.find( spot => spot.id == event.org_id);
+                  })
+                  .filter( event => {
+                    if(!filNer) return true;
+                    else return event.cat_id == filNer;
+                  })
+                  .map( event => {
+                      const { lat, lon, title, date_time_finish, date_time_start } = event;
+                      return (
+                      <Placemark
+                          geometry={ [lat, lon] }
+
+                          properties={{
+                          iconCaption: `${title}`,
+                          balloonContentBody:`${title}</br>
+                                              ${date_time_start.match(/\d\d:\d\d/)[0]} — ${date_time_finish.match(/\d\d:\d\d/)[0]}</br>`,
+                          }}
+
+                          options={{
+                            iconLayout: 'default#image',
+                            iconImageHref: '/placemark.svg',
+                            iconImageSize: [30, 30],
+                            iconContentLayout: `${title}`,
+                          }}
+
+                          modules={
+                          ['geoObject.addon.balloon']
+                          }
+                      /> )
+                    }) : null} */}
+
+
+
+
               {events ? events
                 .filter( event => {
                   if(!filNer) return true;
@@ -106,7 +154,7 @@ export default function Events() {
                       if(!filNer) return true;
                       else return event.cat_id == filNer;
                     })
-                    .map( event => <div style={{marginBottom: '10px'}}><EventCard nerby key={event.id} data={event}/></div> ) : null
+                    .map( event => <div style={{marginBottom: '10px'}}><EventCard key={event.id} data={event}/></div> ) : null
                   }
                 </div>
             </div>
@@ -121,7 +169,7 @@ export default function Events() {
                       if(!filNer) return true;
                       else return event.cat_id == filNer;
                     })
-                    .map( event => <div style={{marginBottom: '10px'}}><EventCard nerby key={event.id} data={event}/></div> ) : null
+                    .map( event => <div style={{marginBottom: '10px'}}><EventCard key={event.id} data={event}/></div> ) : null
                   }
                 </div>
             </div>
