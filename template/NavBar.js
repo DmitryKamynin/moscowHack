@@ -22,7 +22,7 @@ export default function NavBar() {
                 <Link href={`/`}><p>Все события</p></Link>
                 <Link href={`/`}><p>Избранное</p></Link>
 
-                <Image src={`/menu.svg`} width={22} height={22} onClick={() => setMenu(true)}/>
+                <div className={styles.burger}><Image src={`/menu.svg`} width={22} height={22} onClick={() => setMenu(true)}/></div>
             </div>
 
             <Drawer open={menu} onClose={() => setMenu(false)}>

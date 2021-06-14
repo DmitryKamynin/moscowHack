@@ -16,8 +16,8 @@ export default function EventCard({ data }) {
     return (
         <Link href={`/event/${id}`}>
             <a className={styles.bg}>
-                <div className={styles.container}>
-                    <Image src={`${image}`} layout='fill'/>
+                <div className={styles.container} style={{backgroundImage: `url(${image})`}}>
+                    {/* <Image src={`${image}`} layout='fill'/> */}
 
                     <p className={styles.title}>{ title }</p>
                     <p className={styles.address}>{ address }</p>

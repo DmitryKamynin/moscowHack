@@ -8,6 +8,7 @@
     padding: 8px 5px;
 }
     .link{
+        cursor: pointer;
         color: #333333;
         font-weight: 500;
         font-size: 18px;

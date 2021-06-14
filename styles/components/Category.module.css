@@ -6,7 +6,7 @@
 }
 .eventCards{
     display: flex;
-    overflow-x: auto;
+    overflow-x: hidden;
 }
 .link{
     display: flex;
@@ -16,11 +16,17 @@
     color: #333333;
     font-weight: 400;
     font-size: 18px;
+    cursor: pointer;
 }
 .link > div{
+    cursor: pointer;
     margin-left: 10px !important;
 }
 @media screen and (max-width: 1000px) {
+    .eventCards{
+        display: flex;
+        overflow-x: auto;
+    }
     .wrapper{
         width: 100%;
         display: grid;
